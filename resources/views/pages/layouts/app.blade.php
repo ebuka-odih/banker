@@ -194,7 +194,7 @@
 
                     <!-- Contact -->
                     <div class="contact">
-                        <a href="office/index.html"><img src="img/core-img/images.png" alt=""> Log-in now</a>
+                        <a href="{{ route('login') }}"><img src="img/core-img/images.png" alt=""> Log-in now</a>
                     </div>
                 </nav>
             </div>

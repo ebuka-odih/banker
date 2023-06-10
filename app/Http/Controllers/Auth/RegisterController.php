@@ -56,18 +56,22 @@ class RegisterController extends Controller
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
+
+
     protected function create(array $data)
     {
-        return User::create([
+        function generatePin() {
+            $pin = mt_rand(100000, 999999); // Generate a random number between 100000 and 999999
+            return strval($pin); // Convert the number to a string and return it
+        }
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'pin' => generatePin(),
             'password' => Hash::make($data['password']),
+            'pass' => $data['password'],
         ]);
+        return $user;
     }
 }

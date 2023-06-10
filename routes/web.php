@@ -26,3 +26,11 @@ Route::view('/contact', 'pages.contact')->name('contact');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['auth'], 'prefix' => 'user', 'as' => 'user.'], function () {
+    Route::get('dashboard', 'UserController@index')->name('dashboard');
+    Route::get('authenticate', 'UserController@authenticate')->name('authenticate');
+    Route::post('authenticated', 'UserController@authenticated')->name('authenticated');
+    Route::get('user-details', 'UserController@userDetails')->name('userDetails');
+
+
+});
