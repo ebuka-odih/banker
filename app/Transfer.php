@@ -46,8 +46,8 @@ class Transfer extends Model
         }
     }
 
-    public function vat()
+    public function transId()
     {
-        return $vat = $this->vat * $this->amount / 100;
+        return "#".$this->id."5366";
     }
 }

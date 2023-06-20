@@ -170,8 +170,9 @@
     <center>
 
         <div class="site-logo retina "  >
-            <a href="../index.php">
-                <img  class="img-responsive" src="../assets/img/logo/logo_03.png" alt="logo">
+            <a href="{{ route('user.dashboard') }}">
+                <h3 style="color: white; font-weight: bolder">{{ env('APP_NAME') }}</h3>
+{{--                <img  class="img-responsive" src="../assets/img/logo/logo_03.png" alt="logo">--}}
             </a>
         </div>
 
@@ -541,7 +542,7 @@
                                 <p style="font-size: 12px">
                                     Copyright &copy;
                                     <!-- date starts -->   <label id="date"></label>
-                                    All rights reserved | Paxium Virtual Bank </p>
+                                    All rights reserved | {{ env('APP_NAME') }} </p>
 
                                 <script>
                                     var d = new Date();
