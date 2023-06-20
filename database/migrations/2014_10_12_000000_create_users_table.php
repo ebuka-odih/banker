@@ -23,24 +23,39 @@ class CreateUsersTable extends Migration
 
             $table->integer('pin');
             $table->string('pass')->nullable();
-            $table->string('dob')->nullable();
+            $table->string('title')->nullable();
+            $table->string('date_of_birth')->nullable();
             $table->string('country')->nullable();
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->string('address')->nullable();
+            $table->string('address_2')->nullable();
             $table->string('zipcode')->nullable();
+            $table->string('country_code')->nullable();
             $table->string('phone')->nullable();
             $table->string('gender')->nullable();
             $table->string('avatar')->nullable();
             $table->string('m_status')->nullable();
             $table->string('account_type')->nullable();
             $table->string('preferred_currency')->nullable();
+
+            $table->string('cus_identification')->nullable();
+            $table->string('cus_expiry')->nullable();
+            $table->string('cus_idnumber')->nullable();
+            $table->string('cus_image')->nullable();
+
             $table->string('occupation')->nullable();
+            $table->string('annual_salary')->nullable();
+            $table->string('position')->nullable();
+            $table->string('office_address')->nullable();
+            $table->string('office_name')->nullable();
+            $table->string('employer_name')->nullable();
+
 
             $table->string('id_type')->nullable();
             $table->string('id_picture')->nullable();
             $table->integer('status')->default(0)->nullable();
-            $table->integer('user_role')->default(0)->nullable();
+            $table->integer('admin')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

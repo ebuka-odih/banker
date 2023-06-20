@@ -33,25 +33,14 @@ class OTPCode extends Notification
         return ['mail'];
     }
 
-    /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
+
     public function toMail($notifiable)
     {
-        return (new MailMessage)->subject('Nestlecity International')->from('noreply@nestlecityint.com', "Nestlecity International")
+        return (new MailMessage)->subject('Lifepay Trust')->from('noreply@lifepaytrust.com', "Lifepay Trust")
             ->line('Your requested OTP Code is ' . $this->data['wit']->admin_otp . " .")
             ->line('If you do not request for this code kindly ignore!');
     }
 
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
     public function toArray($notifiable)
     {
         return [

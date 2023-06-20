@@ -38,7 +38,7 @@ class AdminSeeder extends Seeder
                 'email' => 'admin@lifepaytrust.com',
                 'status' => 1,
                 'pin' => $this->generatePin(),
-                'user_role' => 1,
+                'admin' => 1,
                 'account_type' => "Savings",
                 'email_verified_at' => \Carbon\Carbon::now(),
                 'password' => Hash::make('lifepaytrust33'),

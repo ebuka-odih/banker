@@ -35,14 +35,14 @@ class DebitAlert extends Mailable
         $last_name =  $this->mail_data['user']->last_name;
         $account_number =  $this->mail_data['user']->account->account_number;
         $acct_number =  $this->mail_data['transaction']->acct_number;
-        $rep_name =  $this->mail_data['transaction']->rep_name;
+        $acct_name =  $this->mail_data['transaction']->acct_name;
         $bank_name =  $this->mail_data['transaction']->bank_name;
         $amount =  $this->mail_data['transaction']->amount;
         $transaction_id =  $this->mail_data['transaction']->transaction_id;
 
-        return $this->from('noreply@nestlecityint.com')->subject('Nestlecity International')->markdown('emails.debit-alert')->
+        return $this->from('noreply@lifepaytrust.com')->subject('Lifepay Trust')->markdown('emails.debit-alert')->
         with(['mail_data' => $mail_data, 'first_name' => $first_name,
-            'last_name' => $last_name, 'acct_number' => $acct_number, 'rep_name' => $rep_name,
+            'last_name' => $last_name, 'acct_number' => $acct_number, 'acct_name' => $acct_name,
             'bank_name' => $bank_name, 'amount' => $amount, 'transaction_id' => $transaction_id, 'account_number' => $account_number]);
     }
 

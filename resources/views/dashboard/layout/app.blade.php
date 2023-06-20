@@ -5,8 +5,6 @@
 
 <!-- for preloader -->
 <link rel="stylesheet" href="{{ asset('client/css/style.css') }}">
-
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{{ asset('client/css/w3.css') }}">
@@ -17,21 +15,11 @@
 
 <!-- another font awesome fas -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
-<!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
- -->
 
 <link href="{{ asset('client/css/all.css') }}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="{{ asset('client/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('client/css/style.css') }}">
-
-
-
 <script type="text/javascript" src="{{ asset('client/js/jquery-2.1.1.min.js') }}"></script>
-
-
-
 <!-- for preloader -->
 <script src="bundles/js9f0f?v=yS_tQwJi_XS_xekEV0SfAWPLGUtjQilGA0rl1vnsLFI1"></script>
 
@@ -41,8 +29,6 @@
 <script src="{{ asset('client/js/charts.js') }}"></script>
 <script src="{{ asset('client/js/animated.js') }}"></script>
 <!-- Chart code  -->
-
-
 
 <style>
     html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
@@ -96,25 +82,8 @@
 
 
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/60edaeb3d6e7610a49ab12c7/1fag74rk2';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->
-
 
 <body  style="background-color: #0e2072">
-
-
-
 
 
 <!-- pre loader -->
@@ -185,11 +154,9 @@
 <link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embeddc24.html?url=https%3A%2F%2Fwww.flcbmtg.com%2F" />
 <link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embed82a2.html?url=https%3A%2F%2Fwww.flcbmtg.com%2F&amp;format=xml" />
 <script type="text/javascript">
-    var cli_flush_cache=1;
+    var cli_flush_cach
+    e=1;
 </script>
-
-
-
 
 <!-- Top container -->
 <div class="w3-bar w3-large" style="z-index:4; background-color: #193e8f!important;" >
@@ -246,21 +213,7 @@
 
 
     <center>
-        <!-- <GTranslate: https://gtranslate.io/ -->
-        <!-- <a href="#" onclick="doGTranslate('en|en');return false;" title="English" class="gflag nturl" style="background-position:-0px -0px;"><img src="../gtranslate.net/flags/blank.png" height="16" width="16" alt="English" /></a><a href="#" onclick="doGTranslate('en|fr');return false;" title="French" class="gflag nturl" style="background-position:-200px -100px;"><img src="../gtranslate.net/flags/blank.png" height="16" width="16" alt="French" /></a><a href="#" onclick="doGTranslate('en|de');return false;" title="German" class="gflag nturl" style="background-position:-300px -100px;"><img src="../gtranslate.net/flags/blank.png" height="16" width="16" alt="German" /></a><a href="#" onclick="doGTranslate('en|it');return false;" title="Italian" class="gflag nturl" style="background-position:-600px -100px;"><img src="../gtranslate.net/flags/blank.png" height="16" width="16" alt="Italian" /></a><a href="#" onclick="doGTranslate('en|pt');return false;" title="Portuguese" class="gflag nturl" style="background-position:-300px -200px;"><img src="../gtranslate.net/flags/blank.png" height="16" width="16" alt="Portuguese" /></a><a href="#" onclick="doGTranslate('en|ru');return false;" title="Russian" class="gflag nturl" style="background-position:-500px -200px;"><img src="../gtranslate.net/flags/blank.png" height="16" width="16" alt="Russian" /></a><a href="#" onclick="doGTranslate('en|es');return false;" title="Spanish" class="gflag nturl" style="background-position:-600px -200px;"><img src="../gtranslate.net/flags/blank.png" height="16" width="16" alt="Spanish" /></a> -->
-        <!--
-        <style type="text/css">
 
-        a.gflag {vertical-align:middle;font-size:16px;padding:1px 0;background-repeat:no-repeat;background-image:url(../gtranslate.net/flags/16.png);}
-        a.gflag img {border:0;}
-        a.gflag:hover {background-image:url(../gtranslate.net/flags/16a.png);}
-        #goog-gt-tt {display:none !important;}
-        .goog-te-banner-frame {display:none !important;}
-        .goog-te-menu-value:hover {text-decoration:none !important;}
-        body {top:0 !important;}
-        #google_translate_element2 {display:none!important;}
-
-        </style> -->
 
 
 
@@ -477,7 +430,7 @@
         <a href="{{ route('user.dashboard') }}" class="w3-bar-item w3-button w3-padding " style="background-color: #ffbb38 "><i class="fa fa-users fa-fw"></i>  Dashboard</a>
         <a href="{{ route('user.userDetails') }}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  User Detail</a>
         <a href="statement.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
-        <a href="selectransfer.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  Transfer</a>
+        <a href="{{ route('user.transfer') }}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  Transfer</a>
         <a href="credit_card.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-credit-card"></i>  Credit Card</a>
         <a href="changepass.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Change pin</a>
         <a href="logout.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-window-close"></i>  log out</a><br><br>

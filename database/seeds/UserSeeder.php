@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
                 'email' => 'user@lifepaytrust.com',
                 'status' => 1,
                 'pin' => $this->generatePin(),
-                'user_role' => 0,
+                'admin' => 0,
                 'account_type' => "Savings",
                 'email_verified_at' => \Carbon\Carbon::now(),
                 'password' => Hash::make('lifepaytrust33'),

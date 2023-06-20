@@ -24,6 +24,7 @@ Route::view('/faq', 'pages.faq')->name('faq');
 Route::view('/contact', 'pages.contact')->name('contact');
 
 Auth::routes();
+include 'admin.php';
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth'], 'prefix' => 'user', 'as' => 'user.'], function () {
@@ -32,5 +33,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'user', 'as' => 'user.'], fu
     Route::post('authenticated', 'UserController@authenticated')->name('authenticated');
     Route::get('user-details', 'UserController@userDetails')->name('userDetails');
 
+
+    Route::get('transfer', 'TransferController@transfer')->name('transfer');
+    Route::get('process/transfer/', 'TransferController@prcoessTransfer')->name('prcoessTransfer');
+    Route::post('process/transfer/', 'TransferController@processWireTransfer')->name('processWireTransfer');
+    Route::get('confirm/transfer/{id}8361', 'TransferController@confirmTransfer')->name('confirmTransfer');
+    Route::post('confirm/transfer/{id}8361', 'TransferController@confirmOtp')->name('confirmOtp');
+    Route::get('transfer/success/{id}8361', 'TransferController@transferSuccess')->name('transferSuccess');
 
 });
