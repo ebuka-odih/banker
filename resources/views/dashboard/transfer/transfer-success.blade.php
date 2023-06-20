@@ -20,23 +20,7 @@
             border-radius: 1rem;
         }
     </style>
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
 
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 
 
@@ -59,7 +43,7 @@
                             <h5 class="font-size-15">Transfer Summary</h5>
 
                             <div class="table-responsive">
-                                <table >
+                                <table class="table table-striped">
                                     <tr>
                                         <th>Debit Amount:</th>
                                         <td>$@convert($transfer->amount)</td>
