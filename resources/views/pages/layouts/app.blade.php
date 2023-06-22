@@ -83,7 +83,10 @@
                 <div class="col-12 d-flex justify-content-between">
                     <!-- Logo Area -->
                     <div class="logo">
-                        <a href="index-2.html"><img src="img/core-img/logo.png"  alt=""></a>
+                        <a href="{{ route('index') }}">
+                            <h3 style="font-weight: bolder; color: white">{{ env('APP_NAME') }}</h3>
+{{--                            <img src="img/core-img/logo.png"  alt="">--}}
+                        </a>
                     </div>
 
                     <!-- Top Contact Info -->
@@ -92,12 +95,12 @@
 
 
 
-                        <a href="mailto:info@paxiumvirtual.com" data-toggle="tooltip" data-placement="bottom" title="info@paxiumvirtual.com"><img src="img/core-img/message.png" alt=""> <span style="color: white;"></span></a>
+                        <a href="mailto:support@lifepaytrust.com" data-toggle="tooltip" data-placement="bottom" title="info@lifepaytrust.com"><img src="img/core-img/message.png" alt=""> <span style="color: white;"></span></a>
 
 
 
 
-                        <a href="https://api.whatsapp.com/send?phone=+14808854369" data-toggle="tooltip" data-placement="bottom" title="Whatsapp"><img src="img/core-img/whats.png" alt=""> <span></span></a>
+{{--                        <a href="https://api.whatsapp.com/send?phone=+14808854369" data-toggle="tooltip" data-placement="bottom" title="Whatsapp"><img src="img/core-img/whats.png" alt=""> <span></span></a>--}}
 
                     </div>
 

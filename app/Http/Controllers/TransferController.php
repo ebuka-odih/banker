@@ -26,7 +26,7 @@ class TransferController extends Controller
             return view('dashboard.transfer.wire-transfer');
         }elseif ($request->transfer_type == 'Mobiledeposit')
         {
-            return view('dashboard.transfer.mobile-deposit');
+            return redirect()->back()->with('declined', 'Mobile Deposit Transfer can only be activated in our Office.');
         }elseif($request->transfer_type == "Banktransfer")
         {
             return view('dashboard.transfer.bank-transfer');
