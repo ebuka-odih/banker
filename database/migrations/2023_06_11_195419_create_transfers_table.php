@@ -26,6 +26,7 @@ class CreateTransfersTable extends Migration
 
             $table->bigInteger('user_id')->nullable();
             $table->bigInteger('account_id')->nullable();
+
             $table->string('sender')->nullable();
             $table->string('bank_name');
             $table->string('acct_name');

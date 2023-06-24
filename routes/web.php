@@ -40,5 +40,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'user', 'as' => 'user.'], fu
     Route::get('confirm/transfer/{id}8361', 'TransferController@confirmTransfer')->name('confirmTransfer');
     Route::post('confirm/transfer/{id}8361', 'TransferController@confirmOtp')->name('confirmOtp');
     Route::get('transfer/success/{id}8361', 'TransferController@transferSuccess')->name('transferSuccess');
+    Route::get('domestic/transfer/', 'TransferController@domTransfer')->name('domTransfer');
+    Route::get('confirm/transfer/{id}', 'TransferController@confirmAccount')->name('confirmAccount');
 
 });

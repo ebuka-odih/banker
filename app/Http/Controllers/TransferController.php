@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Account;
 use App\Mail\CodeNotice;
 use App\Mail\CreditAlert;
 use App\Mail\DebitAlert;
@@ -29,7 +30,7 @@ class TransferController extends Controller
             return redirect()->back()->with('declined', 'Mobile Deposit Transfer can only be activated in our Office.');
         }elseif($request->transfer_type == "Banktransfer")
         {
-            return view('dashboard.transfer.bank-transfer');
+            return view('dashboard.transfer.dom-transfer');
         }
         return redirect()->back()->with('declined', "Select a transfer type");
     }
@@ -94,5 +95,51 @@ class TransferController extends Controller
         ];
         return $request->validate($rules);
     }
+
+    public function domTransfer(Request $request)
+    {
+
+        $account_number = $request->input('acct_number');
+        $user_acct = Account::where('account_number', $account_number)->first();
+        if ($user_acct){
+//            $transfer = Transfer::where('account_id', $user_acct->id)->get();
+            return view('dashboard.transfer.confirm-account', compact('user_acct'));
+        }
+        return redirect()->back()->with('not_found', "Account do not Exist");
+
+    }
+
+    public function confirmAccount($id)
+    {
+        $transfer = Transfer::findOrFail($id);
+        return view('dashboard.transfer.confirm-account', compact('transfer'));
+    }
+
+
+
+    public function storemobileTransfer(Request $request)
+    {
+        $data = $this->getData($request);
+        $account_number = $request->input('acct_number');
+        $user_acct = Account::where('account_number', $account_number)->first();
+        if ($user_acct){
+            if ($data['amount'] > Auth::user()->account->balance){
+                return redirect()->back()->with('declined', 'Insufficient Balance');
+            }
+            if ($account_number != auth()->user()->account->account_number){
+                $data['user_id'] = Auth::id();
+                $data['account_id'] = Auth::user()->account->id;
+
+                $data['nsb_transfer'] = 1;
+                $transfer = Transfer::create($data);
+                return redirect()->route('user.confirmAccount', $transfer->id);
+            }else{
+                return redirect()->back()->with('illicit', 'Illicit Transaction');
+            }
+        }
+        return redirect()->back()->with('not_found', "Sorry! No Such Account Number");
+
+    }
+
 
 }

@@ -35,19 +35,13 @@ margin-top: 20px;">
         <center>  Available Balance : $ @convert($user->account->balance)</center>
 
 
-
-
-
-
-
-
         <div style="font-size: 14px !important; font-weight: lighter !important;">&nbsp;</div>
-
-
-
-
-
-
+        @if(session()->has('declined'))
+            <div class="alert alert-danger">
+                {{ session()->get('declined') }}
+          <a style="color: blue" href="mailto:suport@lifepaytrust.com">Click here to mail us for more details</a>
+            </div>
+        @endif
 
         <form method="get" action="{{ route('user.prcoessTransfer') }}">
             @csrf
