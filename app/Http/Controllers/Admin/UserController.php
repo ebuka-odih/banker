@@ -68,6 +68,11 @@ class UserController extends Controller
         return view('admin.user.add-user');
     }
 
+    function generatePin() {
+        $pin = mt_rand(100000, 999999); // Generate a random number between 100000 and 999999
+        return strval($pin); // Convert the number to a string and return it
+    }
+
     public function store_user(Request $request)
     {
         $request->validate([
@@ -109,11 +114,6 @@ class UserController extends Controller
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
             Image::make($avatar)->resize(200, 200)->save(public_path('avatars/' . $filename));
 
-//            $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-//            $destinationPath = public_path('/avatars');
-//            $image->move($destinationPath, $input['imagename']);
-//            Image::make($avatar)->resize(150, 150)->save(public_path('avatars/' . $filename));
-
             $user = new User();
             $user->first_name = $request->get('first_name');
             $user->last_name = $request->get('last_name');
@@ -148,6 +148,7 @@ class UserController extends Controller
             $user->password = Hash::make($request['password']);
             $user->pass = $request->password;
             $user->avatar = $filename;
+            $user->pin = $this->generatePin();
             $user->save();
             $this->autoCreate($user->id, $request['account_type']);
 
@@ -155,6 +156,7 @@ class UserController extends Controller
             $data = $this->getData($request);
             $data['password'] = Hash::make($request['password']);
             $data['pass'] = $request->password;
+            $data['pin'] = $this->generatePin();
             $user = User::create($data);
             $this->autoCreate($user->id, $request['account_type']);
 
