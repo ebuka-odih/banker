@@ -56,6 +56,7 @@
                                         <th>Account Name:</th>
                                         <td>{{ $transfer->user->last_name }} {{ $transfer->user->first_name }}</td>
                                     </tr>
+                                    @if($transfer->wire_transfer)
 
                                     <tr>
                                         <th>Receiver A/C Number:</th>
@@ -69,6 +70,20 @@
                                         <th>Bank Name:</th>
                                         <td>{{ $transfer->bank_name }}</td>
                                     </tr>
+                                    @else
+                                        <tr>
+                                            <th>Receiver A/C Number:</th>
+                                            <td>{{ substr($transfer->acct_number, 0, 5) }}xxxx</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Recipient Name:</th>
+                                            <td>{{ $transfer->user->first_name." ".$transfer->user->last_name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Bank Name:</th>
+                                            <td>{{ env('APP_NAME') }}</td>
+                                        </tr>
+                                    @endif
                                 </table>
                                 <table class="table align-middle table-nowrap table-centered mb-0">
                                     <tbody>

@@ -34,13 +34,13 @@ class Transfer extends Model
 
     public function transactionType()
     {
-        if ($this->trans_type == "domestic_transfer")
+        if ($this->domestic_transfer == 1)
         {
             return "Domestic Transfer";
-        }elseif($this->trans_type == "mobile_deposit")
+        }elseif($this->mobile_deposit == 1)
         {
             return "Mobile Transfer";
-        }elseif($this->trans_type = "wire_transfer")
+        }elseif($this->wire_transfer = 1)
         {
             return "Wire Transfer";
         }

@@ -28,10 +28,10 @@ class CreateTransfersTable extends Migration
             $table->bigInteger('account_id')->nullable();
 
             $table->string('sender')->nullable();
-            $table->string('bank_name');
-            $table->string('acct_name');
-            $table->string('acct_number');
-            $table->string('swift_code');
+            $table->string('bank_name')->nullable();
+            $table->string('acct_name')->nullable();
+            $table->string('acct_number')->nullable();
+            $table->string('swift_code')->nullable();
             $table->string('country')->nullable();
             $table->text('description')->nullable();
             $table->double('amount', 11, 2);

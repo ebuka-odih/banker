@@ -42,5 +42,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'user', 'as' => 'user.'], fu
     Route::get('transfer/success/{id}8361', 'TransferController@transferSuccess')->name('transferSuccess');
     Route::get('domestic/transfer/', 'TransferController@domTransfer')->name('domTransfer');
     Route::get('confirm/transfer/{id}', 'TransferController@confirmAccount')->name('confirmAccount');
+    Route::post('confirm/domestic/transfer/', 'TransferController@storeMobileTransfer')->name('storeMobileTransfer');
 
 });

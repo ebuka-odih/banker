@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin', 'as' => 'a
     Route::post('password/store', "Admin\AdminController@storePassword")->name('storePassword');
 
     Route::get('wire-transfer/transactions', "Admin\AdminTransfers@wireTransactions")->name('wireTransactions');
+    Route::get('dom-transfer/transactions', "Admin\AdminTransfers@domTransactions")->name('domTransactions');
     Route::get('/transactions/details/{id}535675', "Admin\AdminTransfers@transferDetails")->name('transferDetails');
     Route::post('send/otp-code/{id}', 'Admin\AdminTransfers@admin_otp')->name('admin_otp');
 

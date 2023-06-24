@@ -115,30 +115,34 @@ class TransferController extends Controller
         return view('dashboard.transfer.confirm-account', compact('transfer'));
     }
 
-
-
-    public function storemobileTransfer(Request $request)
+    public function storeMobileTransfer(Request $request)
     {
-        $data = $this->getData($request);
+        $data = $this->getDomData($request);
         $account_number = $request->input('acct_number');
-        $user_acct = Account::where('account_number', $account_number)->first();
-        if ($user_acct){
-            if ($data['amount'] > Auth::user()->account->balance){
-                return redirect()->back()->with('declined', 'Insufficient Balance');
-            }
-            if ($account_number != auth()->user()->account->account_number){
-                $data['user_id'] = Auth::id();
-                $data['account_id'] = Auth::user()->account->id;
 
-                $data['nsb_transfer'] = 1;
-                $transfer = Transfer::create($data);
-                return redirect()->route('user.confirmAccount', $transfer->id);
-            }else{
-                return redirect()->back()->with('illicit', 'Illicit Transaction');
-            }
+        if ($data['amount'] > Auth::user()->account->balance){
+            return redirect()->back()->with('declined', 'Insufficient Balance');
         }
-        return redirect()->back()->with('not_found', "Sorry! No Such Account Number");
+        if ($account_number != auth()->user()->account->account_number){
+            $data['user_id'] = Auth::id();
+            $data['account_id'] = Auth::user()->account->id;
+            $data['sender'] = Auth::user()->account->account_number;
 
+            $data['domestic_transfer'] = 1;
+            $transfer = Transfer::create($data);
+            return redirect()->route('user.confirmTransfer', $transfer->id);
+        }else{
+            return redirect()->back()->with('illicit', 'This Transaction is Not Allowed');
+        }
+    }
+
+    protected function getDomData(Request $request)
+    {
+        $rules = [
+            'acct_number' => 'required',
+            'amount' => 'required',
+        ];
+        return $request->validate($rules);
     }
 
 

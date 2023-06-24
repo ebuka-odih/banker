@@ -5,7 +5,7 @@
         <div class="bg-body-light">
             <div class="content content-full">
                 <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
-                    <h1 class="flex-grow-1 fs-3 fw-semibold my-2 my-sm-3">Wire Transfer Transactions</h1>
+                    <h1 class="flex-grow-1 fs-3 fw-semibold my-2 my-sm-3">Domestic Transfer Transactions</h1>
 
                 </div>
             </div>
@@ -17,7 +17,7 @@
             <!-- Dynamic Table with Export Buttons -->
             <div class="block block-rounded">
                 <div class="block-header block-header-default">
-                    <h3 class="block-title">Wire Transfer History</h3> </div>
+                    <h3 class="block-title">Domestic Transfer History</h3> </div>
                 <div class="block-content block-content-full">
                     <!-- DataTables init on table by adding .js-dataTable-buttons class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _js/pages/be_tables_datatables.js -->
                     <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
@@ -41,7 +41,7 @@
                                         <tr class="odd">
                                             {{--                                        <td class="text-center sorting_1">1</td>--}}
                                             <td class="fw-semibold"> <a href="{{ route('admin.user_details', $item->user->id) }}">{{ $item->user->first_name." ".$item->user->last_name }}</a> </td>
-                                            <td class="d-none d-sm-table-cell"> {{ $item->acct_number }} ({{ $item->acct_name }})</td>
+                                            <td class="d-none d-sm-table-cell"> {{ $item->acct_number }} ({{ $item->user->first_name." ".$item->user->last_name }})</td>
                                             <td class="d-none d-sm-table-cell"> {{ date('Y-M-d', strtotime($item->created_at)) }} <span class="badge bg-primary">{{ date('h:i a', strtotime($item->created_at)) }}</span>  ({{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }})</td>
                                             <td class="fw-semibold">$@convert($item->amount) </td>
                                             <td class="d-none d-sm-table-cell"> {!! $item->status() !!} </td>

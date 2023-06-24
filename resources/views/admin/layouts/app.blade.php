@@ -90,13 +90,8 @@
                                 </a>
                             </li>
                             <li class="nav-main-item">
-                                <a class="nav-main-link" href="be_blocks_options.html">
-                                    <span class="nav-main-link-name">Options</span>
-                                </a>
-                            </li>
-                            <li class="nav-main-item">
-                                <a class="nav-main-link" href="be_blocks_forms.html">
-                                    <span class="nav-main-link-name">Forms</span>
+                                <a class="nav-main-link" href="{{ route('admin.domTransactions') }}">
+                                    <span class="nav-main-link-name">Domestic Transfers</span>
                                 </a>
                             </li>
 

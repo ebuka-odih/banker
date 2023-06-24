@@ -125,6 +125,15 @@
                         {{ session()->get('declined') }}
                     </div>
                 @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
 
 
@@ -151,7 +160,7 @@
                     <div class="input-container1">
                         <i class="fa fa-dollar icon1"></i>
 
-                        <input class="input-field1" id="UserName" type="text" placeholder="Account number" name="account" value="{{ $user_acct->account_number }}" required="">
+                        <input class="input-field1" id="UserName" type="text" placeholder="Account number" name="acct_number" value="{{ $user_acct->account_number }}" required="">
                     </div>
 
 
@@ -159,29 +168,24 @@
 
 
 
-                <form action="" method="Post" enctype="multipart/form-data" style="max-width:500px;margin:auto; background-color:; margin-top: 15px!important; border: 1px solid white!important;  padding: 10px;
+                <form action="{{ route('user.storeMobileTransfer') }}" method="Post" enctype="multipart/form-data" style="max-width:500px;margin:auto; background-color:; margin-top: 15px!important; border: 1px solid white!important;  padding: 10px;
   box-shadow: 1px 1px 1px 2px;">
-
-                    <!--
-                          <input class="input-field1" type="hidden" placeholder="Amount to  sell" name="coin1" value="" >
-
-                              <input class="input-field1" type="hidden" placeholder="Amount to  sell" name="depamount1"  > -->
+                    @csrf
 
                     <h6>Amount</h6>
                     <input class="input-field1" name="amount" type="number" value="" required="">
+                    <input class="input-field1" id="UserName" type="hidden" placeholder="Account number" name="acct_number" value="{{ $user_acct->account_number }}" required="">
+
 
                     <h6>Account Name</h6>
                     <input class="input-field1" type="text" required="" readonly="" value="{{ $user_acct->user->first_name.' '.$user_acct->user->last_name }}">
 
 
                     <h6>transaction Description</h6>
-                    <input class="input-field1" type="text" name="large" value="" required="">
+                    <input class="input-field1" type="text" name="description" value="">
 
 
                     <p></p>
-
-
-
                     <input name="submit2" type="submit" value="PROCEED" class="btn1">
 
 

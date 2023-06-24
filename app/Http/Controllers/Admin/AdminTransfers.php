@@ -21,6 +21,12 @@ class AdminTransfers extends Controller
         $transfer = Withdrawal::where('wire_transfer', 1)->get();
         return view('admin.transfers.wire-history', compact('transfer'));
     }
+    public function domTransactions()
+    {
+
+        $transfer = Transfer::where('domestic_transfer', 1)->get();
+        return view('admin.transfers.dom-history', compact('transfer'));
+    }
     public function transferDetails($id)
     {
         $transfer = Transfer::findOrFail($id);
