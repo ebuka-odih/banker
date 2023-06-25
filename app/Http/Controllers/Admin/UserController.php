@@ -112,7 +112,7 @@ class UserController extends Controller
 
             $avatar = $request->file('avatar'); // in here
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(200, 200)->save(public_path('avatars/' . $filename));
+//            Image::make($avatar)->resize(200, 200)->save(public_path('avatars/' . $filename));
 
             $user = new User();
             $user->first_name = $request->get('first_name');
