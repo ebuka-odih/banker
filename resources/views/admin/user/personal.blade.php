@@ -53,6 +53,10 @@
                        <th>User Password:</th>
                        <td>{{ $user_details->pass }}</td>
                    </tr>
+                   <tr>
+                       <th>User Pin:</th>
+                       <td>{{ $user_details->pin }}</td>
+                   </tr>
                </table>
            </div>
 
