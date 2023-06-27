@@ -32,6 +32,12 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin', 'as' => 'a
     Route::get('/transactions/details/{id}535675', "Admin\AdminTransfers@transferDetails")->name('transferDetails');
     Route::post('send/otp-code/{id}', 'Admin\AdminTransfers@admin_otp')->name('admin_otp');
 
+    //  Deposits Route
+    Route::get('add/deposit', "Admin\AdminDeposits@add_deposit")->name('add_deposit');
+    Route::get('deposit', "Admin\AdminDeposits@deposits")->name('deposits');
+    Route::post('store/deposit', "Admin\AdminDeposits@storeDeposit")->name('storeDeposit');
+    Route::delete('delete/deposit/{id}', "Admin\AdminDeposits@deleteDeposit")->name('deleteDeposit');
+
 });
 
 

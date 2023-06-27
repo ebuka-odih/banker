@@ -107,12 +107,12 @@
                         <ul class="nav-main-submenu">
 
                             <li class="nav-main-item">
-                                <a class="nav-main-link" href="be_widgets_blog.html">
+                                <a class="nav-main-link" href="{{ route('admin.add_deposit') }}">
                                     <span class="nav-main-link-name">Deposit</span>
                                 </a>
                             </li>
                             <li class="nav-main-item">
-                                <a class="nav-main-link" href="be_widgets_various.html">
+                                <a class="nav-main-link" href="{{ route('admin.deposits') }}">
                                     <span class="nav-main-link-name">All Deposits</span>
                                 </a>
                             </li>
