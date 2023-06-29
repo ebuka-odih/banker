@@ -430,11 +430,17 @@
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
         <a href="{{ route('user.dashboard') }}" class="w3-bar-item w3-button w3-padding " style="background-color: #ffbb38 "><i class="fa fa-users fa-fw"></i>  Dashboard</a>
         <a href="{{ route('user.userDetails') }}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  User Detail</a>
-        <a href="statement.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
-        <a href="{{ route('user.transfer') }}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  Transfer</a>
-        <a href="credit_card.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-credit-card"></i>  Credit Card</a>
-        <a href="changepass.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Change pin</a>
-        <a href="logout.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-window-close"></i>  log out</a><br><br>
+        <a href="{{ route('user.transfer') }}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-arrow-up fa-fw"></i>  Transfer</a>
+        <a href="{{ route('user.history') }}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>Tranfer  History</a>
+        <a href="{{ route('user.credit') }}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-arrow-circle-down"></i>  Credit History</a>
+        <a href="{{ route('user.security') }}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Change pin</a>
+        <a href="{{ route('logout') }}" class="w3-bar-item w3-button w3-padding" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}><i class="fa fa-window-close"></i>  log out</a><br><br>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
     </div>
 </nav>
 

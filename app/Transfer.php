@@ -13,12 +13,12 @@ class Transfer extends Model
     {
         if ($this->status == 1)
         {
-            return "<span class='badge rounded-pill bg-success'>Successful</span>";
+            return "<span class='badge  bg-success text-white'>Successful</span>";
         }elseif($this->status == 0)
         {
-            return "<span class='badge rounded-pill bg-warning'>Pending</span>";
+            return "<span class='badge  bg-warning text-white'>Pending</span>";
         }
-        return "<span class='badge rounded-pill bg-danger'>Canceled</span>";
+        return "<span class='badge  bg-danger'>Canceled</span>";
 
     }
 
@@ -46,8 +46,14 @@ class Transfer extends Model
         }
     }
 
+    function generatePin() {
+        $pin = mt_rand(1000000000000, 99999999999999);
+        return strval($pin);
+    }
+
     public function transId()
     {
-        return "#".$this->id."5366";
+        return $this->id.$this->generatePin();
     }
+
 }

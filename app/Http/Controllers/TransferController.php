@@ -7,6 +7,7 @@ use App\Mail\CodeNotice;
 use App\Mail\CreditAlert;
 use App\Mail\DebitAlert;
 use App\Transfer;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -18,6 +19,12 @@ class TransferController extends Controller
     {
         $user = Auth::user();
         return view('dashboard.transfer.transfer', compact('user'));
+    }
+
+    public function history()
+    {
+        $transfers = Transfer::all();
+        return view('dashboard.transfer.history', compact('transfers'));
     }
 
     public function prcoessTransfer(Request $request)
@@ -60,9 +67,22 @@ class TransferController extends Controller
         {
             $transfer->otp = $request->get('otp');
             $transfer->status = 1;
-            $transfer->wire_transfer = 1;
             $transfer->save();
             if ($transfer->status == 1){
+                if ($transfer->domestic_transfer == 1){
+                    $account = Account::where('account_number', $transfer->acct_number);
+                    $account->balance += $transfer->amount;
+                    $account->save();
+
+                    $new_balance = Auth::user()->account->balance -= $transfer->amount;
+                    Auth::user()->account->update(['balance' => $new_balance]);
+
+                    $user = Auth::user();
+                    $mail_data = ['user' => $user, 'transaction' => $transfer, 'account' => $account];
+                    Mail::to($user->email)->send(new DebitAlert($mail_data));
+                    Mail::to($user->email)->send(new CreditAlert($mail_data));
+                    return redirect()->route('user.transferSuccess', $transfer->id);
+                }
                 $new_balance = Auth::user()->account->balance -= $transfer->amount;
                 Auth::user()->account->update(['balance' => $new_balance]);
 
@@ -71,6 +91,7 @@ class TransferController extends Controller
                 Mail::to($user->email)->send(new DebitAlert($mail_data));
                 return redirect()->route('user.transferSuccess', $transfer->id);
             }
+
         }
         return redirect()->back()->with('declined', "Invalid Code, Please enter the right code.");
     }

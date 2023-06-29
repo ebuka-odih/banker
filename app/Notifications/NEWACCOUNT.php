@@ -36,7 +36,7 @@ class NEWACCOUNT extends Notification
 
     public function toMail($notifiable)
     {
-        return (new MailMessage)->subject('Lifepay Trust')->from('noreply@lifepaytrust.com', "Lifepay Trust")
+        return (new MailMessage)->subject(env("APP_NAME"))->from('noreply@lifepaytrust.com', "Lifepay Trust")
                     ->line("Dear ".$this->data['user']->title." ".$this->data['user']->last_name.' Your account with Lifepay Trust Bank account has been established.')
                     ->line("Account Number: " . $this->data['account']->account_number)
                     ->line("Account Type: " . $this->data['user']->account_type)

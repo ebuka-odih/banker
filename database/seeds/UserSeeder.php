@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
         if($accounts){
             $last_account_num = $accounts->account_number ;
         }else {
-            $last_account_num = '10604802003';
+            $last_account_num = '10600000030';
         }
 
         $account_num = (int)$last_account_num + 1;

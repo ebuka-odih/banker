@@ -18,14 +18,25 @@ class Deposit extends Model
     {
         if ($this->status < 0)
         {
-            return "<span class='badge rounded-pill bg-danger'>Declined</span>";
+            return "<span class='badge bg-danger text-white'>Declined</span>";
         }
         elseif($this->status == 0)
         {
-            return "<span class='badge rounded-pill bg-warning'>Pending</span>";
+            return "<span class='badge  bg-warning text-white'>Pending</span>";
         }
-        return "<span class='badge rounded-pill bg-success'>Successful</span>";
+        return "<span class='badge bg-success text-white'>Successful</span>";
     }
+
+    function generatePin() {
+        $pin = mt_rand(1000000000000, 99999999999999);
+        return strval($pin);
+    }
+
+    public function transId()
+    {
+        return $this->id.$this->generatePin();
+    }
+
 
 
 }

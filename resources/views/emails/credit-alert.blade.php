@@ -28,7 +28,7 @@ tr:nth-child(even) {
 <table >
 <tr>
     <th>Credit Amount:</th>
-    <td>$@convert($amount)</td>
+    <td>$@convert($mail_data->transaction->amount)</td>
 </tr>
 <tr>
     <th>A/C Number:</th>
@@ -36,27 +36,13 @@ tr:nth-child(even) {
 </tr>
 <tr>
     <th>Account Name:</th>
-    <td>{{ $rep_name }}</td>
+    <td>{{ $mail_data->transaction->sender }}</td>
 </tr>
 <tr>
     <th>Reference Number:</th>
-    <td>{{ $transaction_id }}</td>
+    <td>{{ $mail_data->transaction->transId() }}</td>
 </tr>
-<tr>
-    <th colspan="2"></th>
-</tr>
-<tr>
-    <th>Receiver A/C Number:</th>
-    <td>{{ substr($acct_number, 0, 5) }}xxxx</td>
-</tr>
-<tr>
-    <th>Sender Name:</th>
-    <td>{{ $last_name }} {{ $first_name }}</td>
-</tr>
-<tr>
-    <th>Bank Name:</th>
-    <td>{{ $bank_name }}</td>
-</tr>
+
 </table>
 
 

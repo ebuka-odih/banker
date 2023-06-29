@@ -40,7 +40,7 @@ class AdminNewAcctAlert extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->subject('Nations Star Bank PLC')->from('noreply@nsbplc.com')
+        return (new MailMessage)->subject(env("APP_NAME"))->from('noreply@lifepaytrust.com')
             ->line("Admin, A new account has been created, check below for info ")
             ->line($this->data['user']->title." ".$this->data['user']->last_name)
             ->line("Account Number: " . $this->data['account']->account_number)

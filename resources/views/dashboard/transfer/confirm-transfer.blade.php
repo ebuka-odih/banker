@@ -138,12 +138,6 @@
 
 
 
-
-
-
-
-
-
             <div class="text-center mt-5" > You are about to transfer <label> USD</label>       <label> {{ $transfer->amount }}</label>
                 <!--  <label> USD </label> -->
                 to  <label> {{ $transfer->acct_number }}   </label>
@@ -191,7 +185,9 @@
 
                 <!-- <input class="mt-5" type="submit" name="" value="Cancel" style="width: 120px"> -->
 
-
+                <br> <br>
+                <hr>
+                <a href="{{ route('user.dashboard') }}" class="btn btn-primary">Goto Dashboard</a>
                 <script>
 
 

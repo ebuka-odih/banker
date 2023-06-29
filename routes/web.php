@@ -32,9 +32,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'user', 'as' => 'user.'], fu
     Route::get('authenticate', 'UserController@authenticate')->name('authenticate');
     Route::post('authenticated', 'UserController@authenticated')->name('authenticated');
     Route::get('user-details', 'UserController@userDetails')->name('userDetails');
+    Route::get('security', 'UserController@security')->name('security');
+    Route::post('change-password', 'UserController@storePassword')->name('storePassword');
+    Route::post('change-pin', 'UserController@changePin')->name('changePin');
 
 
     Route::get('transfer', 'TransferController@transfer')->name('transfer');
+    Route::get('transfer/history', 'TransferController@history')->name('history');
     Route::get('process/transfer/', 'TransferController@prcoessTransfer')->name('prcoessTransfer');
     Route::post('process/transfer/', 'TransferController@processWireTransfer')->name('processWireTransfer');
     Route::get('confirm/transfer/{id}8361', 'TransferController@confirmTransfer')->name('confirmTransfer');
@@ -44,4 +48,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'user', 'as' => 'user.'], fu
     Route::get('confirm/transfer/{id}', 'TransferController@confirmAccount')->name('confirmAccount');
     Route::post('confirm/domestic/transfer/', 'TransferController@storeMobileTransfer')->name('storeMobileTransfer');
 
+    Route::get('deposit/history', 'CreditController@credit')->name('credit');
 });

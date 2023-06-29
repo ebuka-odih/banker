@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class CreditAlert extends Mailable
+class ChangePin extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,19 +16,19 @@ class CreditAlert extends Mailable
      *
      * @return void
      */
-    public $mail_data;
-    public function __construct($mail_data)
+    public $user;
+    public function __construct($user)
     {
-        $this->mail_data = $mail_data;
+        $this->user = $user;
     }
 
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
     public function build()
     {
-
-
-        return $this->from('noreply@lifepaytrust.com')
-            ->subject(env('APP_NAME'))
-            ->markdown('emails.credit-alert');
+        return $this->markdown('emails.changepin');
     }
-
 }

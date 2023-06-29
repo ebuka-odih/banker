@@ -42,7 +42,7 @@ class DepositAlert extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('A deposit of $'.$this->deposit->amount." has been made into your Nestlecity International account");
+            ->line('A deposit of $'.$this->deposit->amount." has been made into your Lifepay Trust account");
     }
 
     /**
