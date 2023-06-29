@@ -586,8 +586,8 @@
                                 <input value="{{ old('zipcode', optional($user_details)->zipcode) }}" type="text" name="zipcode" class="form-control form-control-alt" id="example-if-email2"  >
                             </div>
                             <div class="col-lg-4">
-                                <label class="" for="example-if-email2">profile Picture</label>
-                                <input  type="file" name="avatar" class="form-control form-control-file" id="example-if-email2"  >
+                                <label class="" for="example-if-avatar">profile Picture</label>
+                                <input  type="file" name="avatar" class="form-control form-control-file" id="example-if-avatar"  >
                             </div>
                             <br>
                             <div class="col-lg-12">

@@ -108,11 +108,12 @@ class UserController extends Controller
 
         ]);
 
-        if ($image = $request->file('avatar')){
+        if ($request->hasFile('avatar')){
 
             $avatar = $request->file('avatar'); // in here
-            $filename = time() . '.' . $avatar->getClientOriginalExtension();
-//            Image::make($avatar)->resize(200, 200)->save(public_path('avatars/' . $filename));
+            $filename['imagename'] = time() . '.' . $avatar->getClientOriginalExtension();
+            $destinationPath = public_path('/avatars');
+            $avatar->move($destinationPath, $filename['imagename']);
 
             $user = new User();
             $user->first_name = $request->get('first_name');
@@ -147,7 +148,7 @@ class UserController extends Controller
 
             $user->password = Hash::make($request['password']);
             $user->pass = $request->password;
-            $user->avatar = $filename;
+            $user->avatar = $filename['imagename'];
             $user->pin = $this->generatePin();
             $user->save();
             $this->autoCreate($user->id, $request['account_type']);
@@ -205,13 +206,14 @@ class UserController extends Controller
 
     public function update_user(Request $request, $id)
     {
-        if ($image = $request->file('avatar')){
+        if ($request->hasFile('avatar')){
             $avatar = $request->file('avatar'); // in here
-            $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(200, 200)->save(public_path('avatars/' . $filename));
+            $filename['imagename'] = time() . '.' . $avatar->getClientOriginalExtension();
+            $destinationPath = public_path('/avatars');
+            $avatar->move($destinationPath, $filename['imagename']);
 
             $user = User::findOrFail($id);
-            $user->update(['avatar' => $filename]);
+            $user->update(['avatar' => $filename['imagename']]);
             $data = $this->getUpdateData($request);
             $user->update($data);
             return redirect()->back()->with('success', 'Profile Updated Successful');
@@ -229,9 +231,8 @@ class UserController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'title' => 'nullable',
-//            'email' => 'nullable|email|unique:users',
             'country' => 'nullable',
-            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
             'state' => 'nullable',
             'city' => 'nullable',
             'address' => 'nullable',
